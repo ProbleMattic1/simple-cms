@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://getlocal-project-810af4.gitlab.io/simple/'
 languageCode = 'en-us'
 title = 'Simple CMS'
 theme = 'ananke'

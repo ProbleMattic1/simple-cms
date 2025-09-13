@@ -1,19 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Blog on Simple CMS</title>
-    <link>http://localhost:1313/tags/blog/</link>
-    <description>Recent content in Blog on Simple CMS</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jan 2024 14:30:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Multi-Author Blog Platform</title>
-      <link>http://localhost:1313/projects/blog-platform/</link>
-      <pubDate>Wed, 10 Jan 2024 14:30:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/blog-platform/</guid>
-      <description>&lt;h1 id=&#34;multi-author-blog-platform&#34;&gt;Multi-Author Blog Platform&lt;/h1&gt;&#xA;&lt;p&gt;A comprehensive blog platform designed for teams and organizations with multiple content creators.&lt;/p&gt;&#xA;&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;&#xA;&lt;p&gt;Built for a digital marketing agency that needed a platform to manage content from multiple authors while maintaining brand consistency.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Multi-Author Support&lt;/strong&gt;: Individual author profiles and permissions&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Content Workflow&lt;/strong&gt;: Draft, review, and publish workflow&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Media Management&lt;/strong&gt;: Organized image and file management&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Social Integration&lt;/strong&gt;: Built-in social media sharing&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Analytics&lt;/strong&gt;: Content performance tracking&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-implementation&#34;&gt;Technical Implementation&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hugo&lt;/strong&gt;: Static site generation&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Decap CMS&lt;/strong&gt;: Multi-user content management&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Git Integration&lt;/strong&gt;: Version control for all content&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CDN&lt;/strong&gt;: Global content delivery&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;75% reduction&lt;/strong&gt; in content publishing time&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;40% increase&lt;/strong&gt; in content consistency&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;60% improvement&lt;/strong&gt; in SEO performance&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Zero downtime&lt;/strong&gt; since launch&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;client-testimonial&#34;&gt;Client Testimonial&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;The multi-author functionality has streamlined our content creation process. Our team can now focus on creating great content instead of managing technical details.&amp;rdquo;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on Simple CMS</title><link>https://getlocal-project-810af4.gitlab.io/simple/tags/blog/</link><description>Recent content in Blog on Simple CMS</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 10 Jan 2024 14:30:00 +0000</lastBuildDate><atom:link href="https://getlocal-project-810af4.gitlab.io/simple/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Multi-Author Blog Platform</title><link>https://getlocal-project-810af4.gitlab.io/simple/projects/blog-platform/</link><pubDate>Wed, 10 Jan 2024 14:30:00 +0000</pubDate><guid>https://getlocal-project-810af4.gitlab.io/simple/projects/blog-platform/</guid><description>&lt;h1 id="multi-author-blog-platform"&gt;Multi-Author Blog Platform&lt;/h1&gt;
+&lt;p&gt;A comprehensive blog platform designed for teams and organizations with multiple content creators.&lt;/p&gt;
+&lt;h2 id="project-overview"&gt;Project Overview&lt;/h2&gt;
+&lt;p&gt;Built for a digital marketing agency that needed a platform to manage content from multiple authors while maintaining brand consistency.&lt;/p&gt;
+&lt;h2 id="key-features"&gt;Key Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Multi-Author Support&lt;/strong&gt;: Individual author profiles and permissions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Content Workflow&lt;/strong&gt;: Draft, review, and publish workflow&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Media Management&lt;/strong&gt;: Organized image and file management&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Social Integration&lt;/strong&gt;: Built-in social media sharing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Analytics&lt;/strong&gt;: Content performance tracking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="technical-implementation"&gt;Technical Implementation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hugo&lt;/strong&gt;: Static site generation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Decap CMS&lt;/strong&gt;: Multi-user content management&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Git Integration&lt;/strong&gt;: Version control for all content&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CDN&lt;/strong&gt;: Global content delivery&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="results"&gt;Results&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;75% reduction&lt;/strong&gt; in content publishing time&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;40% increase&lt;/strong&gt; in content consistency&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;60% improvement&lt;/strong&gt; in SEO performance&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zero downtime&lt;/strong&gt; since launch&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="client-testimonial"&gt;Client Testimonial&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;The multi-author functionality has streamlined our content creation process. Our team can now focus on creating great content instead of managing technical details.&amp;rdquo;&lt;/p&gt;</description></item></channel></rss>

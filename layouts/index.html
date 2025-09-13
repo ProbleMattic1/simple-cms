@@ -1,0 +1,104 @@
+{{ define "main" }}
+<div class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray">
+  {{ .Content }}
+</div>
+
+<!-- Featured Content Section -->
+<div class="pa3 pa4-ns w-100 w-70-ns center">
+  <section class="w-100 mw8">
+    
+    <!-- Recent Posts -->
+    <div class="w-100 mb4 relative">
+      <h2 class="f3 fw1 athelas mt0 lh-title">Recent Blog Posts</h2>
+      {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+      <article class="bb b--black-10 mb4">
+        <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+          <div class="flex-column flex-row-ns flex">
+            <div class="blah w-100">
+              <h3 class="f3 fw1 athelas mt0 lh-title">
+                <a href="{{ .Permalink }}" class="color-inherit dim link">{{ .Title }}</a>
+              </h3>
+              <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+                {{ .Summary }}
+              </div>
+              <p class="f6 lh-copy mv0">By {{ .Params.author | default .Site.Params.author }}</p>
+              <a href="{{ .Permalink }}" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    <!-- Featured Projects -->
+    <div class="w-100 mb4 relative">
+      <h2 class="f3 fw1 athelas mt0 lh-title">Featured Projects</h2>
+      {{ range first 3 (where .Site.RegularPages "Section" "projects") }}
+      <article class="bb b--black-10 mb4">
+        <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+          <div class="flex-column flex-row-ns flex">
+            <div class="blah w-100">
+              <h3 class="f3 fw1 athelas mt0 lh-title">
+                <a href="{{ .Permalink }}" class="color-inherit dim link">{{ .Title }}</a>
+              </h3>
+              <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+                {{ .Summary }}
+              </div>
+              <p class="f6 lh-copy mv0">By {{ .Params.author | default .Site.Params.author }}</p>
+              <a href="{{ .Permalink }}" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">view project</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    <!-- Recent Testimonials -->
+    <div class="w-100 mb4 relative">
+      <h2 class="f3 fw1 athelas mt0 lh-title">Client Testimonials</h2>
+      {{ range first 3 (where .Site.RegularPages "Section" "testimonials") }}
+      <article class="bb b--black-10 mb4">
+        <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+          <div class="flex-column flex-row-ns flex">
+            <div class="blah w-100">
+              <h3 class="f3 fw1 athelas mt0 lh-title">
+                <a href="{{ .Permalink }}" class="color-inherit dim link">{{ .Title }}</a>
+              </h3>
+              <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+                {{ .Summary }}
+              </div>
+              <p class="f6 lh-copy mv0">By {{ .Params.author | default .Site.Params.author }}</p>
+              <a href="{{ .Permalink }}" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    <!-- Recent Pages -->
+    <div class="w-100 mb4 relative">
+      <h2 class="f3 fw1 athelas mt0 lh-title">Latest Pages</h2>
+      {{ range first 3 (where .Site.RegularPages "Section" "pages") }}
+      <article class="bb b--black-10 mb4">
+        <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+          <div class="flex-column flex-row-ns flex">
+            <div class="blah w-100">
+              <h3 class="f3 fw1 athelas mt0 lh-title">
+                <a href="{{ .Permalink }}" class="color-inherit dim link">{{ .Title }}</a>
+              </h3>
+              <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+                {{ .Summary }}
+              </div>
+              <p class="f6 lh-copy mv0">By {{ .Params.author | default .Site.Params.author }}</p>
+              <a href="{{ .Permalink }}" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+  </section>
+</div>
+{{ end }}

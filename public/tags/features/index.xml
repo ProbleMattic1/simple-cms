@@ -1,19 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Features on Simple CMS</title>
-    <link>http://localhost:1313/tags/features/</link>
-    <description>Recent content in Features on Simple CMS</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 02 Jan 2024 10:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/features/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Ananke Theme Features</title>
-      <link>http://localhost:1313/posts/theme-features/</link>
-      <pubDate>Tue, 02 Jan 2024 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/theme-features/</guid>
-      <description>&lt;h1 id=&#34;ananke-theme-features&#34;&gt;Ananke Theme Features&lt;/h1&gt;&#xA;&lt;p&gt;The Ananke theme provides a comprehensive set of features perfect for content management systems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;h3 id=&#34;-modern-design&#34;&gt;🎨 &lt;strong&gt;Modern Design&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Clean, professional appearance&lt;/li&gt;&#xA;&lt;li&gt;Responsive layout that works on all devices&lt;/li&gt;&#xA;&lt;li&gt;Beautiful typography and spacing&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;-built-in-search&#34;&gt;🔍 &lt;strong&gt;Built-in Search&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Fast, client-side search functionality&lt;/li&gt;&#xA;&lt;li&gt;Searches through all your content&lt;/li&gt;&#xA;&lt;li&gt;Easy to use search interface&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;-social-media-integration&#34;&gt;📱 &lt;strong&gt;Social Media Integration&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Social media follow buttons&lt;/li&gt;&#xA;&lt;li&gt;Content sharing capabilities&lt;/li&gt;&#xA;&lt;li&gt;Support for major platforms&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;-content-organization&#34;&gt;🏷️ &lt;strong&gt;Content Organization&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Tag support for categorizing content&lt;/li&gt;&#xA;&lt;li&gt;Featured images for posts&lt;/li&gt;&#xA;&lt;li&gt;Recent posts display on homepage&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;-performance&#34;&gt;⚡ &lt;strong&gt;Performance&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Fast loading times&lt;/li&gt;&#xA;&lt;li&gt;Optimized CSS and JavaScript&lt;/li&gt;&#xA;&lt;li&gt;SEO-friendly structure&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;customization-options&#34;&gt;Customization Options&lt;/h2&gt;&#xA;&lt;p&gt;The theme is highly customizable:&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Features on Simple CMS</title><link>https://getlocal-project-810af4.gitlab.io/simple/tags/features/</link><description>Recent content in Features on Simple CMS</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 02 Jan 2024 10:00:00 +0000</lastBuildDate><atom:link href="https://getlocal-project-810af4.gitlab.io/simple/tags/features/index.xml" rel="self" type="application/rss+xml"/><item><title>Ananke Theme Features</title><link>https://getlocal-project-810af4.gitlab.io/simple/posts/theme-features/</link><pubDate>Tue, 02 Jan 2024 10:00:00 +0000</pubDate><guid>https://getlocal-project-810af4.gitlab.io/simple/posts/theme-features/</guid><description>&lt;h1 id="ananke-theme-features"&gt;Ananke Theme Features&lt;/h1&gt;
+&lt;p&gt;The Ananke theme provides a comprehensive set of features perfect for content management systems.&lt;/p&gt;
+&lt;h2 id="key-features"&gt;Key Features&lt;/h2&gt;
+&lt;h3 id="-modern-design"&gt;🎨 &lt;strong&gt;Modern Design&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Clean, professional appearance&lt;/li&gt;
+&lt;li&gt;Responsive layout that works on all devices&lt;/li&gt;
+&lt;li&gt;Beautiful typography and spacing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="-built-in-search"&gt;🔍 &lt;strong&gt;Built-in Search&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fast, client-side search functionality&lt;/li&gt;
+&lt;li&gt;Searches through all your content&lt;/li&gt;
+&lt;li&gt;Easy to use search interface&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="-social-media-integration"&gt;📱 &lt;strong&gt;Social Media Integration&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Social media follow buttons&lt;/li&gt;
+&lt;li&gt;Content sharing capabilities&lt;/li&gt;
+&lt;li&gt;Support for major platforms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="-content-organization"&gt;🏷️ &lt;strong&gt;Content Organization&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Tag support for categorizing content&lt;/li&gt;
+&lt;li&gt;Featured images for posts&lt;/li&gt;
+&lt;li&gt;Recent posts display on homepage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="-performance"&gt;⚡ &lt;strong&gt;Performance&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fast loading times&lt;/li&gt;
+&lt;li&gt;Optimized CSS and JavaScript&lt;/li&gt;
+&lt;li&gt;SEO-friendly structure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="customization-options"&gt;Customization Options&lt;/h2&gt;
+&lt;p&gt;The theme is highly customizable:&lt;/p&gt;</description></item></channel></rss>

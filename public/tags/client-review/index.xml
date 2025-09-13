@@ -1,19 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Client-Review on Simple CMS</title>
-    <link>http://localhost:1313/tags/client-review/</link>
-    <description>Recent content in Client-Review on Simple CMS</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jan 2024 09:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/client-review/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Exceptional Service and Results</title>
-      <link>http://localhost:1313/testimonials/client-review-1/</link>
-      <pubDate>Sat, 20 Jan 2024 09:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/testimonials/client-review-1/</guid>
-      <description>&lt;h1 id=&#34;exceptional-service-and-results&#34;&gt;Exceptional Service and Results&lt;/h1&gt;&#xA;&lt;p&gt;&lt;em&gt;Client: TechStart Solutions&lt;/em&gt;&lt;br&gt;&#xA;&lt;em&gt;Project: Corporate Website CMS&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-challenge&#34;&gt;The Challenge&lt;/h2&gt;&#xA;&lt;p&gt;TechStart Solutions needed a modern, scalable content management system for their corporate website that could handle multiple content types and support their growing team.&lt;/p&gt;&#xA;&lt;h2 id=&#34;our-solution&#34;&gt;Our Solution&lt;/h2&gt;&#xA;&lt;p&gt;We developed a custom Hugo-based CMS with Decap CMS integration, providing:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Intuitive content management interface&lt;/li&gt;&#xA;&lt;li&gt;Multi-user support with role-based permissions&lt;/li&gt;&#xA;&lt;li&gt;SEO optimization and performance enhancements&lt;/li&gt;&#xA;&lt;li&gt;Mobile-responsive design&lt;/li&gt;&#xA;&lt;li&gt;Comprehensive documentation and training&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;90% reduction&lt;/strong&gt; in content update time&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;200% increase&lt;/strong&gt; in website performance&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Zero technical issues&lt;/strong&gt; since launch&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;100% team adoption&lt;/strong&gt; within first month&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;client-quote&#34;&gt;Client Quote&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;Working with this team was an absolute pleasure. They delivered exactly what we needed, on time and within budget. The CMS has transformed how we manage our content, and our team couldn&amp;rsquo;t be happier with the results.&amp;rdquo;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Client-Review on Simple CMS</title><link>https://getlocal-project-810af4.gitlab.io/simple/tags/client-review/</link><description>Recent content in Client-Review on Simple CMS</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 20 Jan 2024 09:00:00 +0000</lastBuildDate><atom:link href="https://getlocal-project-810af4.gitlab.io/simple/tags/client-review/index.xml" rel="self" type="application/rss+xml"/><item><title>Exceptional Service and Results</title><link>https://getlocal-project-810af4.gitlab.io/simple/testimonials/client-review-1/</link><pubDate>Sat, 20 Jan 2024 09:00:00 +0000</pubDate><guid>https://getlocal-project-810af4.gitlab.io/simple/testimonials/client-review-1/</guid><description>&lt;h1 id="exceptional-service-and-results"&gt;Exceptional Service and Results&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Client: TechStart Solutions&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;Project: Corporate Website CMS&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="the-challenge"&gt;The Challenge&lt;/h2&gt;
+&lt;p&gt;TechStart Solutions needed a modern, scalable content management system for their corporate website that could handle multiple content types and support their growing team.&lt;/p&gt;
+&lt;h2 id="our-solution"&gt;Our Solution&lt;/h2&gt;
+&lt;p&gt;We developed a custom Hugo-based CMS with Decap CMS integration, providing:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Intuitive content management interface&lt;/li&gt;
+&lt;li&gt;Multi-user support with role-based permissions&lt;/li&gt;
+&lt;li&gt;SEO optimization and performance enhancements&lt;/li&gt;
+&lt;li&gt;Mobile-responsive design&lt;/li&gt;
+&lt;li&gt;Comprehensive documentation and training&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="results"&gt;Results&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;90% reduction&lt;/strong&gt; in content update time&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;200% increase&lt;/strong&gt; in website performance&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zero technical issues&lt;/strong&gt; since launch&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;100% team adoption&lt;/strong&gt; within first month&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="client-quote"&gt;Client Quote&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Working with this team was an absolute pleasure. They delivered exactly what we needed, on time and within budget. The CMS has transformed how we manage our content, and our team couldn&amp;rsquo;t be happier with the results.&amp;rdquo;&lt;/p&gt;</description></item></channel></rss>

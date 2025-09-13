@@ -25,8 +25,6 @@ We provide comprehensive content management solutions including website developm
 
 ## Ready to Get Started?
 
-Explore our projects, read client testimonials, and discover how we can help transform your content management workflow.
+Use the **Admin Panel** to create and manage your content. The content you create will automatically appear on this homepage and throughout your site.
 
-{{ partial "featured-projects.html" . }}
-
-{{ partial "recent-testimonials.html" . }}
+**👉 [Access Admin Panel](/admin/) to start creating content!**

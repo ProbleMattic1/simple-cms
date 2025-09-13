@@ -1,354 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simple CMS - Content Manager</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <!-- External CSS for better server compatibility -->
+  <link rel="stylesheet" href="/admin/admin-styles.css">
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" onerror="console.error('Failed to load Decap CMS script')"></script>
+  
+  <!-- Fallback styles in case external CSS fails -->
   <style>
-    /* Custom CMS Styling */
-    * {
-      box-sizing: border-box;
+    /* Critical fallback styles */
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #f8f9fa; 
     }
-    
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8f9fa;
+    .cms-header { 
+      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); 
+      color: white; 
+      padding: 2rem 1rem; 
+      text-align: center; 
     }
-    
-    .cms-header {
-      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    .cms-header h1 { 
+      margin: 0; 
+      font-size: 2rem; 
+      font-weight: 600; 
     }
-    
-    .cms-header h1 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 600;
-    }
-    
-    .cms-header p {
-      margin: 0.5rem 0 0 0;
-      opacity: 0.9;
-      font-size: 1rem;
-      font-weight: 300;
-    }
-    
-    .cms-features {
-      background: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      border-bottom: 1px solid #ecf0f1;
-    }
-    
-    .cms-features h2 {
-      margin: 0 0 1rem 0;
-      color: #2c3e50;
-      font-size: 1.5rem;
-      font-weight: 500;
-    }
-    
-    .cms-features p {
-      margin: 0 0 2rem 0;
-      color: #666;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    
-    /* Dashboard Stats */
-    .dashboard-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-    
-    .stat-card {
-      background: white;
-      border: 1px solid #ecf0f1;
-      border-radius: 12px;
-      padding: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    
-    .stat-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      border-color: #3498db;
-    }
-    
-    .stat-icon {
-      font-size: 2.5rem;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #3498db, #2980b9);
-      border-radius: 12px;
-      color: white;
-    }
-    
-    .stat-content h3 {
-      margin: 0 0 0.5rem 0;
-      color: #2c3e50;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    
-    .stat-content p {
-      margin: 0;
-      color: #7f8c8d;
-      font-size: 0.9rem;
-    }
-    
-    /* Quick Actions */
-    .quick-actions {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid #ecf0f1;
-    }
-    
-    .quick-actions h3 {
-      margin: 0 0 1.5rem 0;
-      color: #2c3e50;
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-    
-    .action-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    
-    .action-btn {
-      background: linear-gradient(135deg, #3498db, #2980b9);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-    
-    .action-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
-      background: linear-gradient(135deg, #2980b9, #1f4e79);
-    }
-    
-    .btn-icon {
-      font-size: 1.2rem;
-    }
-    
-    /* Override Decap CMS styles */
-    .nc-app {
-      background: #f8f9fa !important;
-    }
-    
-    .nc-appHeader {
-      background: #2c3e50 !important;
-      border-bottom: 1px solid #34495e !important;
-    }
-    
-    .nc-appHeader-title {
-      color: white !important;
-      font-weight: 600 !important;
-    }
-    
-    .nc-appHeader-nav {
-      color: white !important;
-    }
-    
-    .nc-appHeader-navItem {
-      color: white !important;
-    }
-    
-    .nc-appHeader-navItem:hover {
-      background: rgba(255,255,255,0.1) !important;
-    }
-    
-    .nc-appHeader-navItem--active {
-      background: rgba(255,255,255,0.2) !important;
-    }
-    
-    /* Button styling */
-    .nc-button {
-      background: #3498db !important;
-      border-color: #3498db !important;
-      border-radius: 6px !important;
-      font-weight: 500 !important;
-      transition: all 0.3s ease !important;
-    }
-    
-    .nc-button:hover {
-      background: #2980b9 !important;
-      border-color: #2980b9 !important;
-      transform: translateY(-1px) !important;
-    }
-    
-    .nc-button--primary {
-      background: #3498db !important;
-      border-color: #3498db !important;
-    }
-    
-    .nc-button--primary:hover {
-      background: #2980b9 !important;
-      border-color: #2980b9 !important;
-    }
-    
-    /* Form styling */
-    .nc-widget {
-      border: 1px solid #ecf0f1 !important;
-      border-radius: 6px !important;
-      transition: border-color 0.3s ease !important;
-    }
-    
-    .nc-widget:focus-within {
-      border-color: #3498db !important;
-      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1) !important;
-    }
-    
-    .nc-widgetInput {
-      border: none !important;
-      border-radius: 6px !important;
-      padding: 0.75rem !important;
-      font-size: 0.95rem !important;
-    }
-    
-    .nc-widgetInput:focus {
-      outline: none !important;
-      box-shadow: none !important;
-    }
-    
-    /* Card styling */
-    .nc-card {
-      background: white !important;
-      border: 1px solid #ecf0f1 !important;
-      border-radius: 8px !important;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
-      transition: all 0.3s ease !important;
-    }
-    
-    .nc-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
-      transform: translateY(-1px) !important;
-    }
-    
-    /* Collection styling */
-    .nc-collectionPage {
-      background: #f8f9fa !important;
-    }
-    
-    .nc-collectionPage-header {
-      background: white !important;
-      border-bottom: 1px solid #ecf0f1 !important;
-      padding: 1.5rem !important;
-    }
-    
-    .nc-collectionPage-title {
-      color: #2c3e50 !important;
-      font-weight: 600 !important;
-      font-size: 1.5rem !important;
-    }
-    
-    /* Markdown editor styling */
-    .nc-markdownEditor {
-      border: 1px solid #ecf0f1 !important;
-      border-radius: 6px !important;
-    }
-    
-    .nc-markdownEditor-toolbar {
-      background: #f8f9fa !important;
-      border-bottom: 1px solid #ecf0f1 !important;
-    }
-    
-    .nc-markdownEditor-textarea {
-      border: none !important;
-      border-radius: 0 0 6px 6px !important;
-    }
-    
-    /* Image widget styling */
-    .nc-imageWidget {
-      border: 2px dashed #ecf0f1 !important;
-      border-radius: 8px !important;
-      transition: all 0.3s ease !important;
-    }
-    
-    .nc-imageWidget:hover {
-      border-color: #3498db !important;
-      background: rgba(52, 152, 219, 0.05) !important;
-    }
-    
-    /* List widget styling */
-    .nc-listWidget {
-      border: 1px solid #ecf0f1 !important;
-      border-radius: 6px !important;
-    }
-    
-    .nc-listWidget-item {
-      border-bottom: 1px solid #ecf0f1 !important;
-    }
-    
-    .nc-listWidget-item:last-child {
-      border-bottom: none !important;
-    }
-    
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .cms-header {
-        padding: 1.5rem 1rem;
-      }
-      
-      .cms-header h1 {
-        font-size: 1.5rem;
-      }
-      
-      .cms-features {
-        padding: 1.5rem 1rem;
-      }
-      
-      .dashboard-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      
-      .stat-card {
-        padding: 1rem;
-      }
-      
-      .stat-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 2rem;
-      }
-      
-      .action-buttons {
-        grid-template-columns: 1fr;
-      }
-      
-      .action-btn {
-        padding: 0.875rem 1.25rem;
-        font-size: 0.9rem;
-      }
+    .cms-features { 
+      background: white; 
+      padding: 2rem 1rem; 
+      text-align: center; 
     }
   </style>
 </head>
@@ -363,14 +53,6 @@
     <p>Create, edit, and publish content with our intuitive interface. No technical knowledge required.</p>
     
     <div class="dashboard-stats">
-      <div class="stat-card" onclick="window.location.href='#/collections/homepage'">
-        <div class="stat-icon">🏠</div>
-        <div class="stat-content">
-          <h3>Homepage Content</h3>
-          <p>Edit your homepage content</p>
-        </div>
-      </div>
-      
       <div class="stat-card" onclick="window.location.href='#/collections/posts'">
         <div class="stat-icon">📝</div>
         <div class="stat-content">
@@ -407,10 +89,6 @@
     <div class="quick-actions">
       <h3>Quick Actions</h3>
       <div class="action-buttons">
-        <button class="action-btn" onclick="window.location.href='#/collections/homepage'">
-          <span class="btn-icon">🏠</span>
-          Edit Homepage
-        </button>
         <button class="action-btn" onclick="window.location.href='#/collections/posts'">
           <span class="btn-icon">➕</span>
           New Blog Post
@@ -432,8 +110,15 @@
   </div>
   
   <script>
-    // Initialize Decap CMS with enhanced configuration
-    CMS.init({
+    // Decap CMS v3 initialization - much simpler approach
+    document.addEventListener('DOMContentLoaded', function() {
+      // Wait for the CMS script to load
+      function initCMS() {
+        if (window.CMS) {
+          console.log('Initializing Decap CMS v3...');
+          
+          // Initialize CMS with configuration
+          window.CMS.init({
       config: {
         load_config_file: false,
         backend: {
@@ -446,43 +131,6 @@
         display_url: window.location.origin,
         logo_url: '',
         collections: [
-          {
-            name: 'homepage',
-            label: '🏠 Homepage Content',
-            files: [
-              {
-                name: 'homepage',
-                label: 'Homepage Content',
-                file: 'content/_index.md',
-                fields: [
-                  {
-                    label: 'Title',
-                    name: 'title',
-                    widget: 'string',
-                    required: true
-                  },
-                  {
-                    label: 'Description',
-                    name: 'description',
-                    widget: 'text',
-                    required: true
-                  },
-                  {
-                    label: 'Featured Image',
-                    name: 'featured_image',
-                    widget: 'image',
-                    required: false
-                  },
-                  {
-                    label: 'Body',
-                    name: 'body',
-                    widget: 'markdown',
-                    required: true
-                  }
-                ]
-              }
-            ]
-          },
           {
             name: 'posts',
             label: '📝 Blog Posts',
@@ -722,6 +370,17 @@
           }
         ]
       }
+    });
+          
+          console.log('CMS initialized successfully!');
+        } else {
+          console.log('CMS not ready, retrying in 100ms...');
+          setTimeout(initCMS, 100);
+        }
+      }
+      
+      // Start initialization
+      initCMS();
     });
   </script>
 </body>

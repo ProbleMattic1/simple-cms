@@ -1,0 +1,73 @@
+# GitLab CI/CD Configuration for Simple CMS
+# This file configures automatic deployment to GitLab Pages
+
+# Define stages
+stages:
+  - build
+  - deploy
+
+# Variables
+variables:
+  HUGO_VERSION: "0.150.0"
+  HUGO_ENV: "production"
+
+# Build stage
+build:
+  stage: build
+  image: alpine:latest
+  before_script:
+    # Install Hugo
+    - apk add --no-cache wget
+    - wget -O hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz"
+    - tar -xzf hugo.tar.gz
+    - mv hugo /usr/local/bin/
+    - hugo version
+  script:
+    # Build the site for production
+    - hugo --config config.production.toml --minify --cleanDestinationDir --environment production
+    # Remove development files
+    - find public -name "livereload.js" -delete
+    - find public -name "*.map" -delete
+    # Ensure all required files are present
+    - ls -la public/
+    - ls -la public/ananke/css/
+    - ls -la public/admin/
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 hour
+  only:
+    - main
+    - master
+
+# Deploy stage
+deploy:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache rsync
+  script:
+    # Copy files to GitLab Pages directory
+    - mkdir -p public
+    - cp -r public/* public/
+    # Create .gitlab-pages file for custom domain (if needed)
+    - echo "yourdomain.com" > public/.gitlab-pages
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+    - master
+
+# Pages deployment (GitLab Pages specific)
+pages:
+  stage: deploy
+  script:
+    - echo "Deploying to GitLab Pages..."
+    - ls -la public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+    - master

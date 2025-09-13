@@ -1,19 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Technical-Expertise on Simple CMS</title>
-    <link>http://localhost:1313/tags/technical-expertise/</link>
-    <description>Recent content in Technical-Expertise on Simple CMS</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jan 2024 16:45:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/technical-expertise/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Outstanding Technical Expertise</title>
-      <link>http://localhost:1313/testimonials/client-review-2/</link>
-      <pubDate>Thu, 18 Jan 2024 16:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/testimonials/client-review-2/</guid>
-      <description>&lt;h1 id=&#34;outstanding-technical-expertise&#34;&gt;Outstanding Technical Expertise&lt;/h1&gt;&#xA;&lt;p&gt;&lt;em&gt;Client: Creative Agency Pro&lt;/em&gt;&lt;br&gt;&#xA;&lt;em&gt;Project: Portfolio Website with CMS&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;project-background&#34;&gt;Project Background&lt;/h2&gt;&#xA;&lt;p&gt;Creative Agency Pro required a sophisticated portfolio website with a content management system that could showcase their work while being easy for their team to update.&lt;/p&gt;&#xA;&lt;h2 id=&#34;technical-requirements&#34;&gt;Technical Requirements&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Custom portfolio layouts&lt;/li&gt;&#xA;&lt;li&gt;Image gallery management&lt;/li&gt;&#xA;&lt;li&gt;Client case study templates&lt;/li&gt;&#xA;&lt;li&gt;Team member profiles&lt;/li&gt;&#xA;&lt;li&gt;Contact form integration&lt;/li&gt;&#xA;&lt;li&gt;SEO optimization&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;our-approach&#34;&gt;Our Approach&lt;/h2&gt;&#xA;&lt;p&gt;We provided a comprehensive solution including:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Custom Hugo Theme&lt;/strong&gt;: Tailored to their brand and requirements&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Decap CMS Integration&lt;/strong&gt;: User-friendly content management&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Performance Optimization&lt;/strong&gt;: Fast loading times and smooth user experience&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Training &amp;amp; Documentation&lt;/strong&gt;: Complete team training and ongoing support&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;key-achievements&#34;&gt;Key Achievements&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Custom Design&lt;/strong&gt;: Unique theme matching their brand perfectly&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Easy Content Management&lt;/strong&gt;: Non-technical team can update content easily&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;: 95+ PageSpeed scores across all pages&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;SEO Success&lt;/strong&gt;: 150% increase in organic traffic within 3 months&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;client-feedback&#34;&gt;Client Feedback&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;The technical expertise and attention to detail were outstanding. They not only delivered exactly what we asked for but also provided valuable suggestions that improved our final product. The CMS is intuitive, fast, and perfectly suited to our needs.&amp;rdquo;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Technical-Expertise on Simple CMS</title><link>https://getlocal-project-810af4.gitlab.io/simple/tags/technical-expertise/</link><description>Recent content in Technical-Expertise on Simple CMS</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 18 Jan 2024 16:45:00 +0000</lastBuildDate><atom:link href="https://getlocal-project-810af4.gitlab.io/simple/tags/technical-expertise/index.xml" rel="self" type="application/rss+xml"/><item><title>Outstanding Technical Expertise</title><link>https://getlocal-project-810af4.gitlab.io/simple/testimonials/client-review-2/</link><pubDate>Thu, 18 Jan 2024 16:45:00 +0000</pubDate><guid>https://getlocal-project-810af4.gitlab.io/simple/testimonials/client-review-2/</guid><description>&lt;h1 id="outstanding-technical-expertise"&gt;Outstanding Technical Expertise&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;Client: Creative Agency Pro&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;Project: Portfolio Website with CMS&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id="project-background"&gt;Project Background&lt;/h2&gt;
+&lt;p&gt;Creative Agency Pro required a sophisticated portfolio website with a content management system that could showcase their work while being easy for their team to update.&lt;/p&gt;
+&lt;h2 id="technical-requirements"&gt;Technical Requirements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Custom portfolio layouts&lt;/li&gt;
+&lt;li&gt;Image gallery management&lt;/li&gt;
+&lt;li&gt;Client case study templates&lt;/li&gt;
+&lt;li&gt;Team member profiles&lt;/li&gt;
+&lt;li&gt;Contact form integration&lt;/li&gt;
+&lt;li&gt;SEO optimization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="our-approach"&gt;Our Approach&lt;/h2&gt;
+&lt;p&gt;We provided a comprehensive solution including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Custom Hugo Theme&lt;/strong&gt;: Tailored to their brand and requirements&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Decap CMS Integration&lt;/strong&gt;: User-friendly content management&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Performance Optimization&lt;/strong&gt;: Fast loading times and smooth user experience&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Training &amp;amp; Documentation&lt;/strong&gt;: Complete team training and ongoing support&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="key-achievements"&gt;Key Achievements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Custom Design&lt;/strong&gt;: Unique theme matching their brand perfectly&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Easy Content Management&lt;/strong&gt;: Non-technical team can update content easily&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt;: 95+ PageSpeed scores across all pages&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SEO Success&lt;/strong&gt;: 150% increase in organic traffic within 3 months&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="client-feedback"&gt;Client Feedback&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;The technical expertise and attention to detail were outstanding. They not only delivered exactly what we asked for but also provided valuable suggestions that improved our final product. The CMS is intuitive, fast, and perfectly suited to our needs.&amp;rdquo;&lt;/p&gt;</description></item></channel></rss>

@@ -4,6 +4,8 @@ backend:
 
 media_folder: static/images
 public_folder: /images
+site_url: https://getlocal-project-810af4.gitlab.io
+display_url: https://getlocal-project-810af4.gitlab.io
 
 collections:
   - name: "posts"

@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simple CMS - Content Manager</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" onerror="console.error('Failed to load Decap CMS script')"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Custom CMS Styling */
@@ -363,7 +364,15 @@
     <p>Create, edit, and publish content with our intuitive interface. No technical knowledge required.</p>
     
     <div class="dashboard-stats">
-      <div class="stat-card">
+      <div class="stat-card" onclick="window.location.href='#/collections/homepage'">
+        <div class="stat-icon">🏠</div>
+        <div class="stat-content">
+          <h3>Homepage Content</h3>
+          <p>Edit your homepage content</p>
+        </div>
+      </div>
+      
+      <div class="stat-card" onclick="window.location.href='#/collections/posts'">
         <div class="stat-icon">📝</div>
         <div class="stat-content">
           <h3>Blog Posts</h3>
@@ -371,7 +380,7 @@
         </div>
       </div>
       
-      <div class="stat-card">
+      <div class="stat-card" onclick="window.location.href='#/collections/pages'">
         <div class="stat-icon">📄</div>
         <div class="stat-content">
           <h3>Pages</h3>
@@ -379,7 +388,7 @@
         </div>
       </div>
       
-      <div class="stat-card">
+      <div class="stat-card" onclick="window.location.href='#/collections/projects'">
         <div class="stat-icon">🚀</div>
         <div class="stat-content">
           <h3>Projects</h3>
@@ -387,7 +396,7 @@
         </div>
       </div>
       
-      <div class="stat-card">
+      <div class="stat-card" onclick="window.location.href='#/collections/testimonials'">
         <div class="stat-icon">💬</div>
         <div class="stat-content">
           <h3>Testimonials</h3>
@@ -399,6 +408,10 @@
     <div class="quick-actions">
       <h3>Quick Actions</h3>
       <div class="action-buttons">
+        <button class="action-btn" onclick="window.location.href='#/collections/homepage'">
+          <span class="btn-icon">🏠</span>
+          Edit Homepage
+        </button>
         <button class="action-btn" onclick="window.location.href='#/collections/posts'">
           <span class="btn-icon">➕</span>
           New Blog Post
@@ -420,259 +433,30 @@
   </div>
   
   <script>
-    // Initialize Decap CMS with enhanced configuration
-    CMS.init({
-      config: {
-        load_config_file: false,
-        backend: {
-          name: 'git-gateway',
-          branch: 'main'
-        },
-        media_folder: 'static/images',
-        public_folder: '/images',
-        site_url: 'http://localhost:1313',
-        display_url: 'http://localhost:1313',
-        logo_url: '',
-        collections: [
-          {
-            name: 'posts',
-            label: '📝 Blog Posts',
-            folder: 'content/posts',
-            create: true,
-            slug: '{{slug}}',
-            summary: '{{title}} - {{date}}',
-            sortable_fields: ['title', 'date'],
-            view_filters: [
-              {
-                label: 'Draft',
-                field: 'draft',
-                pattern: 'true'
-              },
-              {
-                label: 'Published',
-                field: 'draft',
-                pattern: 'false'
-              }
-            ],
-            fields: [
-              {
-                label: 'Title',
-                name: 'title',
-                widget: 'string',
-                required: true,
-                hint: 'The title of your blog post'
-              },
-              {
-                label: 'Date',
-                name: 'date',
-                widget: 'datetime',
-                required: true,
-                date_format: 'YYYY-MM-DD',
-                time_format: 'HH:mm:ss',
-                format: 'YYYY-MM-DDTHH:mm:ssZ'
-              },
-              {
-                label: 'Draft',
-                name: 'draft',
-                widget: 'boolean',
-                default: true,
-                hint: 'Uncheck to publish this post'
-              },
-              {
-                label: 'Tags',
-                name: 'tags',
-                widget: 'list',
-                allow_add: true,
-                required: false,
-                hint: 'Add tags to categorize your post'
-              },
-              {
-                label: 'Featured Image',
-                name: 'featured_image',
-                widget: 'image',
-                required: false,
-                hint: 'Upload a featured image for your post'
-              },
-              {
-                label: 'Description',
-                name: 'description',
-                widget: 'text',
-                required: false,
-                hint: 'Brief description for SEO and social sharing'
-              },
-              {
-                label: 'Body',
-                name: 'body',
-                widget: 'markdown',
-                required: true,
-                hint: 'Write your post content here using Markdown'
-              }
-            ]
-          },
-          {
-            name: 'pages',
-            label: '📄 Pages',
-            folder: 'content/pages',
-            create: true,
-            slug: '{{slug}}',
-            summary: '{{title}}',
-            fields: [
-              {
-                label: 'Title',
-                name: 'title',
-                widget: 'string',
-                required: true
-              },
-              {
-                label: 'Date',
-                name: 'date',
-                widget: 'datetime',
-                required: true,
-                date_format: 'YYYY-MM-DD',
-                time_format: 'HH:mm:ss',
-                format: 'YYYY-MM-DDTHH:mm:ssZ'
-              },
-              {
-                label: 'Draft',
-                name: 'draft',
-                widget: 'boolean',
-                default: false
-              },
-              {
-                label: 'Featured Image',
-                name: 'featured_image',
-                widget: 'image',
-                required: false
-              },
-              {
-                label: 'Description',
-                name: 'description',
-                widget: 'text',
-                required: false
-              },
-              {
-                label: 'Body',
-                name: 'body',
-                widget: 'markdown',
-                required: true
-              }
-            ]
-          },
-          {
-            name: 'projects',
-            label: '🚀 Projects',
-            folder: 'content/projects',
-            create: true,
-            slug: '{{slug}}',
-            summary: '{{title}} - {{date}}',
-            sortable_fields: ['title', 'date'],
-            fields: [
-              {
-                label: 'Title',
-                name: 'title',
-                widget: 'string',
-                required: true
-              },
-              {
-                label: 'Date',
-                name: 'date',
-                widget: 'datetime',
-                required: true,
-                date_format: 'YYYY-MM-DD',
-                time_format: 'HH:mm:ss',
-                format: 'YYYY-MM-DDTHH:mm:ssZ'
-              },
-              {
-                label: 'Draft',
-                name: 'draft',
-                widget: 'boolean',
-                default: true
-              },
-              {
-                label: 'Tags',
-                name: 'tags',
-                widget: 'list',
-                allow_add: true,
-                required: false
-              },
-              {
-                label: 'Featured Image',
-                name: 'featured_image',
-                widget: 'image',
-                required: false
-              },
-              {
-                label: 'Description',
-                name: 'description',
-                widget: 'text',
-                required: false
-              },
-              {
-                label: 'Body',
-                name: 'body',
-                widget: 'markdown',
-                required: true
-              }
-            ]
-          },
-          {
-            name: 'testimonials',
-            label: '💬 Testimonials',
-            folder: 'content/testimonials',
-            create: true,
-            slug: '{{slug}}',
-            summary: '{{title}} - {{date}}',
-            fields: [
-              {
-                label: 'Title',
-                name: 'title',
-                widget: 'string',
-                required: true
-              },
-              {
-                label: 'Date',
-                name: 'date',
-                widget: 'datetime',
-                required: true,
-                date_format: 'YYYY-MM-DD',
-                time_format: 'HH:mm:ss',
-                format: 'YYYY-MM-DDTHH:mm:ssZ'
-              },
-              {
-                label: 'Draft',
-                name: 'draft',
-                widget: 'boolean',
-                default: true
-              },
-              {
-                label: 'Tags',
-                name: 'tags',
-                widget: 'list',
-                allow_add: true,
-                required: false
-              },
-              {
-                label: 'Featured Image',
-                name: 'featured_image',
-                widget: 'image',
-                required: false
-              },
-              {
-                label: 'Description',
-                name: 'description',
-                widget: 'text',
-                required: false
-              },
-              {
-                label: 'Body',
-                name: 'body',
-                widget: 'markdown',
-                required: true
-              }
-            ]
-          }
-        ]
+    // Decap CMS v3 initialization - using external config file
+    document.addEventListener('DOMContentLoaded', function() {
+      // Wait for the CMS script to load
+      function initCMS() {
+        if (window.CMS) {
+          console.log('Initializing Decap CMS v3...');
+          
+          // Initialize CMS with external config file
+          window.CMS.init({
+            config: {
+              load_config_file: true,
+              config_path: 'config.yml'
+            }
+          });
+          
+          console.log('CMS initialized successfully!');
+        } else {
+          console.log('CMS not ready, retrying in 100ms...');
+          setTimeout(initCMS, 100);
+        }
       }
+      
+      // Start initialization
+      initCMS();
     });
   </script>
 </body>

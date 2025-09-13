@@ -1,7 +1,7 @@
 # Production Configuration for Simple CMS
 # This file contains production-specific settings
 
-baseURL = 'https://yourdomain.com/'
+baseURL = 'https://getlocal-project-810af4.gitlab.io/simple/'
 languageCode = 'en-us'
 title = 'Simple CMS'
 theme = 'ananke'
