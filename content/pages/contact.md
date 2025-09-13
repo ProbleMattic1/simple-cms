@@ -26,6 +26,6 @@ Ready to get started with your content management system? We'd love to hear from
 
 Have a project in mind? Want to learn more about our services? Send us a message and we'll get back to you within 24 hours.
 
-{{< partial "contact-form.html" . >}}
+{{ partial "contact-form.html" . }}
 
 We're here to help you create an amazing content management system that meets your needs and exceeds your expectations.

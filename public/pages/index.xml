@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Simple CMS</title>
+    <link>http://localhost:1313/pages/</link>
+    <description>Recent content in Pages on Simple CMS</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CMS Demo</title>
+      <link>http://localhost:1313/pages/cms-demo/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pages/cms-demo/</guid>
+      <description>&lt;h1 id=&#34;content-management-system-demo&#34;&gt;Content Management System Demo&lt;/h1&gt;&#xA;&lt;p&gt;Welcome to the Simple CMS demo page! Here you can learn about our powerful content management system and see how easy it is to create and manage content.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-what-is-our-cms&#34;&gt;🎯 What is Our CMS?&lt;/h2&gt;&#xA;&lt;p&gt;Our Content Management System is built with modern web technologies to provide a fast, secure, and user-friendly experience for content creators.&lt;/p&gt;&#xA;&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;📝 Easy Content Creation&lt;/strong&gt;: Create blog posts, pages, projects, and testimonials&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;🖼️ Media Management&lt;/strong&gt;: Upload and organize images with drag-and-drop&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;🏷️ Content Organization&lt;/strong&gt;: Use tags and categories to organize content&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;📱 Mobile Friendly&lt;/strong&gt;: Manage content from any device&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;🔍 Built-in Search&lt;/strong&gt;: Find content quickly with our search functionality&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;⚡ Fast Performance&lt;/strong&gt;: Lightning-fast loading times&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;🛡️ Secure&lt;/strong&gt;: Built with security best practices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-getting-started&#34;&gt;🚀 Getting Started&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-access-the-cms&#34;&gt;1. Access the CMS&lt;/h3&gt;&#xA;&lt;p&gt;Click the &amp;ldquo;Admin&amp;rdquo; link in the navigation menu or visit &lt;code&gt;/admin/&lt;/code&gt; directly.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Contact Us</title>
+      <link>http://localhost:1313/pages/contact/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pages/contact/</guid>
+      <description>&lt;h1 id=&#34;contact-us&#34;&gt;Contact Us&lt;/h1&gt;&#xA;&lt;p&gt;Ready to get started with your content management system? We&amp;rsquo;d love to hear from you!&lt;/p&gt;&#xA;&lt;h2 id=&#34;get-in-touch&#34;&gt;Get In Touch&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Email&lt;/strong&gt;: &lt;a href=&#34;mailto:your.email@example.com&#34;&gt;your.email@example.com&lt;/a&gt;&lt;br&gt;&#xA;&lt;strong&gt;Phone&lt;/strong&gt;: (555) 123-4567&lt;br&gt;&#xA;&lt;strong&gt;Address&lt;/strong&gt;: 123 Main Street, City, State 12345&lt;/p&gt;&#xA;&lt;h2 id=&#34;business-hours&#34;&gt;Business Hours&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Monday - Friday&lt;/strong&gt;: 9:00 AM - 6:00 PM&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Saturday&lt;/strong&gt;: 10:00 AM - 4:00 PM&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Sunday&lt;/strong&gt;: Closed&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;send-us-a-message&#34;&gt;Send Us a Message&lt;/h2&gt;&#xA;&lt;p&gt;Have a project in mind? Want to learn more about our services? Send us a message and we&amp;rsquo;ll get back to you within 24 hours.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Our Services</title>
+      <link>http://localhost:1313/pages/services/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pages/services/</guid>
+      <description>&lt;h1 id=&#34;our-services&#34;&gt;Our Services&lt;/h1&gt;&#xA;&lt;p&gt;We provide comprehensive content management solutions tailored to your needs.&lt;/p&gt;&#xA;&lt;h2 id=&#34;content-management&#34;&gt;Content Management&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Website Development&lt;/strong&gt;: Custom websites built with modern technologies&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Content Strategy&lt;/strong&gt;: Strategic planning for your content needs&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;SEO Optimization&lt;/strong&gt;: Improve your search engine rankings&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Maintenance&lt;/strong&gt;: Ongoing support and updates&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-solutions&#34;&gt;Technical Solutions&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Static Site Generation&lt;/strong&gt;: Fast, secure, and reliable websites&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CMS Integration&lt;/strong&gt;: Easy-to-use content management interfaces&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Performance Optimization&lt;/strong&gt;: Lightning-fast loading times&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mobile Responsiveness&lt;/strong&gt;: Perfect on all devices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;support--training&#34;&gt;Support &amp;amp; Training&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Training&lt;/strong&gt;: Learn how to manage your content effectively&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Documentation&lt;/strong&gt;: Comprehensive guides and tutorials&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Support&lt;/strong&gt;: Ongoing technical support and assistance&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Consulting&lt;/strong&gt;: Strategic advice for your digital presence&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Contact us to learn more about how we can help with your content management needs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -27,6 +27,6 @@ We provide comprehensive content management solutions including website developm
 
 Explore our projects, read client testimonials, and discover how we can help transform your content management workflow.
 
-{{< partial "featured-projects.html" . >}}
+{{ partial "featured-projects.html" . }}
 
-{{< partial "recent-testimonials.html" . >}}
+{{ partial "recent-testimonials.html" . }}
