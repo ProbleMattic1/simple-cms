@@ -1,0 +1,150 @@
+<!-- Performance Optimization Scripts -->
+<script>
+// Performance monitoring and optimization
+(function() {
+    'use strict';
+    
+    // Lazy loading for images
+    function initLazyLoading() {
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    }
+    
+    // Preload critical resources
+    function preloadCriticalResources() {
+        const criticalResources = [
+            '/css/critical.css',
+            '/js/critical.js'
+        ];
+        
+        criticalResources.forEach(resource => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.href = resource;
+            link.as = resource.endsWith('.css') ? 'style' : 'script';
+            document.head.appendChild(link);
+        });
+    }
+    
+    // Service Worker registration
+    function registerServiceWorker() {
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    }
+    
+    // Performance metrics
+    function trackPerformance() {
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    const metrics = {
+                        domContentLoaded: perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart,
+                        loadComplete: perfData.loadEventEnd - perfData.loadEventStart,
+                        firstPaint: performance.getEntriesByType('paint').find(entry => entry.name === 'first-paint')?.startTime || 0,
+                        firstContentfulPaint: performance.getEntriesByType('paint').find(entry => entry.name === 'first-contentful-paint')?.startTime || 0
+                    };
+                    
+                    // Send metrics to analytics (replace with your analytics service)
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'performance_metrics', {
+                            'custom_parameter_1': Math.round(metrics.domContentLoaded),
+                            'custom_parameter_2': Math.round(metrics.loadComplete),
+                            'custom_parameter_3': Math.round(metrics.firstPaint),
+                            'custom_parameter_4': Math.round(metrics.firstContentfulPaint)
+                        });
+                    }
+                }, 0);
+            });
+        }
+    }
+    
+    // Initialize all performance features
+    function init() {
+        initLazyLoading();
+        preloadCriticalResources();
+        registerServiceWorker();
+        trackPerformance();
+    }
+    
+    // Run when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
+
+<!-- Critical CSS for above-the-fold content -->
+<style>
+/* Critical CSS for performance */
+.lazy {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lazy.loaded {
+    opacity: 1;
+}
+
+/* Preload animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Optimize font loading */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+}
+
+/* Reduce layout shift */
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>

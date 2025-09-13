@@ -1,0 +1,208 @@
+# Netlify Configuration for Simple CMS
+# This file configures Netlify deployment settings
+
+[build]
+  # Build command
+  command = "hugo --config config.production.toml --minify --cleanDestinationDir"
+  
+  # Directory to publish
+  publish = "public"
+  
+  # Environment variables
+  environment = { HUGO_VERSION = "0.150.0", HUGO_ENV = "production" }
+
+[build.environment]
+  # Hugo version
+  HUGO_VERSION = "0.150.0"
+  
+  # Build environment
+  HUGO_ENV = "production"
+  
+  # Enable Git info
+  HUGO_ENABLEGITINFO = "true"
+
+# Redirect rules
+[[redirects]]
+  # Redirect www to non-www
+  from = "https://www.yourdomain.com/*"
+  to = "https://yourdomain.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  # Redirect HTTP to HTTPS
+  from = "http://yourdomain.com/*"
+  to = "https://yourdomain.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  # Redirect old admin path
+  from = "/admin"
+  to = "/admin/"
+  status = 301
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Form handling
+[[forms]]
+  # Contact form
+  [forms.contact]
+    action = "/api/contact"
+    method = "POST"
+
+# Functions (if using Netlify Functions)
+[functions]
+  directory = "netlify/functions"
+
+# Plugin configuration
+[[plugins]]
+  package = "@netlify/plugin-hugo"
+
+  [plugins.inputs]
+    hugoVersion = "0.150.0"
+    hugoConfigFile = "config.production.toml"
+    publishDir = "public"
+
+# Branch deploy settings
+[context.production]
+  command = "hugo --config config.production.toml --minify --cleanDestinationDir"
+
+[context.deploy-preview]
+  command = "hugo --config config.toml --minify --cleanDestinationDir"
+
+[context.branch-deploy]
+  command = "hugo --config config.toml --minify --cleanDestinationDir"
+
+# Edge functions (if using Netlify Edge Functions)
+[[edge_functions]]
+  function = "search"
+  path = "/api/search"
+
+# Build hooks
+[build_hooks]
+  # Webhook for external services
+  [build_hooks.deploy]
+    url = "https://api.netlify.com/build_hooks/YOUR_BUILD_HOOK_ID"
+    method = "POST"
+
+# Split testing (A/B testing)
+[[split_tests]]
+  # Example A/B test for homepage
+  [split_tests.homepage]
+    path = "/"
+    weight = 0.5
+    [split_tests.homepage.variants]
+      [split_tests.homepage.variants.control]
+        weight = 50
+      [split_tests.homepage.variants.variant]
+        weight = 50
+        path = "/variant/"
+
+# Large media (if using Netlify Large Media)
+[media]
+  # Enable large media support
+  enable = true
+
+# Identity (for CMS authentication)
+[identity]
+  # Enable Netlify Identity
+  enable = true
+  
+  # External providers
+  [identity.external]
+    [identity.external.github]
+      client_id = "YOUR_GITHUB_CLIENT_ID"
+      client_secret = "YOUR_GITHUB_CLIENT_SECRET"
+    
+    [identity.external.google]
+      client_id = "YOUR_GOOGLE_CLIENT_ID"
+      client_secret = "YOUR_GOOGLE_CLIENT_SECRET"
+
+# Git Gateway (for CMS)
+[git_gateway]
+  # Enable Git Gateway
+  enable = true
+  
+  # Branch for content
+  branch = "main"
+  
+  # Commit message template
+  commit_message = "Update content via CMS"
+
+# Processing settings
+[processing]
+  # Enable processing
+  enable = true
+  
+  # Skip processing for certain files
+  skip = ["*.pdf", "*.zip", "*.tar.gz"]
+  
+  # Image processing
+  [processing.images]
+    enable = true
+    quality = 85
+    format = "webp"
+  
+  # CSS processing
+  [processing.css]
+    enable = true
+    minify = true
+  
+  # JavaScript processing
+  [processing.js]
+    enable = true
+    minify = true
+
+# Development settings
+[dev]
+  # Local development settings
+  command = "hugo server --config config.toml --bind 0.0.0.0 --port 1313"
+  
+  # Port for local development
+  port = 1313
+  
+  # Publish directory for local development
+  publish = "public"
+  
+  # Environment variables for development
+  [dev.environment]
+    HUGO_ENV = "development"
+    HUGO_ENABLEGITINFO = "false"

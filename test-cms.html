@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Setup Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            transition: background 0.3s ease;
+        }
+        .button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple CMS Setup Test</h1>
+    <p>This page helps you verify that your CMS setup is working correctly.</p>
+
+    <div class="test-section">
+        <h3>1. CMS Files Check</h3>
+        <p>Verify that the CMS files are in place:</p>
+        <ul>
+            <li><span class="status success">✓</span> <code>static/admin/index.html</code> - Main CMS interface</li>
+            <li><span class="status success">✓</span> <code>static/admin/config.yml</code> - CMS configuration</li>
+            <li><span class="status success">✓</span> <code>static/images/</code> - Media directory</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>2. Content Collections</h3>
+        <p>Your CMS includes these content types:</p>
+        <ul>
+            <li><strong>Blog Posts</strong> - Articles and news content</li>
+            <li><strong>Pages</strong> - Static pages like services and about</li>
+            <li><strong>Projects</strong> - Portfolio items and case studies</li>
+            <li><strong>Testimonials</strong> - Client reviews and feedback</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>3. Testing the CMS</h3>
+        <p>To test your CMS setup:</p>
+        <ol>
+            <li>Start your Hugo server: <code>hugo server</code></li>
+            <li>Navigate to: <code>http://localhost:1313/admin/</code></li>
+            <li>You should see the CMS login interface</li>
+            <li>Try creating a new blog post</li>
+        </ol>
+        
+        <a href="/admin/" class="button">Access CMS</a>
+        <a href="/cms-demo/" class="button">View Demo Page</a>
+    </div>
+
+    <div class="test-section">
+        <h3>4. CMS Features</h3>
+        <p>Your CMS includes these features:</p>
+        <ul>
+            <li>✅ User-friendly interface</li>
+            <li>✅ Markdown editor</li>
+            <li>✅ Image upload and management</li>
+            <li>✅ Tag-based organization</li>
+            <li>✅ Draft/publish workflow</li>
+            <li>✅ Responsive design</li>
+            <li>✅ Custom styling</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>5. Next Steps</h3>
+        <p>After testing locally, you'll need to:</p>
+        <ol>
+            <li><strong>Deploy to Production</strong> - Use Netlify, Vercel, or similar</li>
+            <li><strong>Set Up Authentication</strong> - Configure Git Gateway (Netlify) or OAuth</li>
+            <li><strong>Invite Users</strong> - Add content creators to the system</li>
+            <li><strong>Train Users</strong> - Show them how to use the CMS</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h3>6. Troubleshooting</h3>
+        <p>Common issues and solutions:</p>
+        <ul>
+            <li><strong>CMS not loading:</strong> Check that Hugo server is running</li>
+            <li><strong>Authentication issues:</strong> Verify Git Gateway is enabled</li>
+            <li><strong>Content not saving:</strong> Check Git repository permissions</li>
+            <li><strong>Images not uploading:</strong> Verify static/images directory exists</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>7. Documentation</h3>
+        <p>For more information, check these resources:</p>
+        <ul>
+            <li><a href="/CMS_SETUP.md">CMS Setup Guide</a></li>
+            <li><a href="/CONTENT_STRUCTURE.md">Content Structure Guide</a></li>
+            <li><a href="/THEME_SETUP.md">Theme Setup Guide</a></li>
+            <li><a href="/NEXT_STEPS.md">Next Steps Roadmap</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // Simple test to check if CMS files are accessible
+        function testCMSFiles() {
+            const files = [
+                '/admin/',
+                '/admin/config.yml',
+                '/images/'
+            ];
+            
+            files.forEach(file => {
+                fetch(file)
+                    .then(response => {
+                        if (response.ok) {
+                            console.log(`✓ ${file} is accessible`);
+                        } else {
+                            console.log(`✗ ${file} returned ${response.status}`);
+                        }
+                    })
+                    .catch(error => {
+                        console.log(`✗ ${file} failed: ${error.message}`);
+                    });
+            });
+        }
+        
+        // Run tests when page loads
+        window.addEventListener('load', testCMSFiles);
+    </script>
+</body>
+</html>

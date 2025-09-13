@@ -1,13 +1,38 @@
 baseURL = 'http://localhost:1313/'
 languageCode = 'en-us'
 title = 'Simple CMS'
-theme = ''
+theme = 'ananke'
 
 # Site configuration
 [params]
   description = "A simple content management system built with Hugo"
   author = "Your Name"
   email = "your.email@example.com"
+
+# Ananke theme configuration
+[ananke]
+  show_recent_posts = true
+
+[ananke.social]
+  icon_path = "ananke/socials/%s.svg"
+
+[ananke.social.follow]
+  new_window_icon = false
+  networks = [
+    "github",
+    "linkedin",
+    "twitter"
+  ]
+
+[ananke.social.share]
+  icons = true
+  sharetext = true
+  networks = [
+    "email",
+    "facebook",
+    "linkedin",
+    "twitter"
+  ]
   
 # Build configuration
 [build]
@@ -29,6 +54,11 @@ theme = ''
     name = "About"
     url = "/about/"
     weight = 30
+  
+  [[menu.main]]
+    name = "Admin"
+    url = "/admin/"
+    weight = 40
 
 # Content configuration
 [markup]

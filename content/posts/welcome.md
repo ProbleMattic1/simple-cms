@@ -3,7 +3,8 @@ title: "Welcome to Your First Post"
 date: 2024-01-01T12:00:00Z
 draft: false
 tags: ["welcome", "getting-started"]
-categories: ["General"]
+featured_image: ""
+description: "This is your first blog post! Learn how to create and manage content in your new CMS."
 ---
 
 # Welcome to Your First Post

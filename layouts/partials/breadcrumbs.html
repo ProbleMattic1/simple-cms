@@ -1,0 +1,140 @@
+<!-- Breadcrumb Navigation -->
+{{ if not .IsHome }}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+            <a href="{{ "/" | relURL }}" class="breadcrumb-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                </svg>
+                <span>Home</span>
+            </a>
+        </li>
+        
+        {{ if .Section }}
+        <li class="breadcrumb-separator" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{{ .Section | relURL }}" class="breadcrumb-link">
+                {{ .Section | title }}
+            </a>
+        </li>
+        {{ end }}
+        
+        {{ if .IsPage }}
+        <li class="breadcrumb-separator" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+        </li>
+        <li class="breadcrumb-item breadcrumb-current" aria-current="page">
+            {{ .Title }}
+        </li>
+        {{ end }}
+        
+        {{ if .IsNode }}
+        <li class="breadcrumb-separator" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+        </li>
+        <li class="breadcrumb-item breadcrumb-current" aria-current="page">
+            {{ .Title }}
+        </li>
+        {{ end }}
+    </ol>
+</nav>
+
+<style>
+.breadcrumbs {
+    background: #f8f9fa;
+    border-bottom: 1px solid #ecf0f1;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-link:hover {
+    color: #3498db;
+    background: rgba(52, 152, 219, 0.1);
+}
+
+.breadcrumb-link svg {
+    flex-shrink: 0;
+}
+
+.breadcrumb-current {
+    color: #2c3e50;
+    font-weight: 500;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-separator {
+    color: #bdc3c7;
+    margin: 0 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-separator svg {
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .breadcrumbs {
+        padding: 0.75rem 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .breadcrumb-list {
+        padding: 0 0.75rem;
+    }
+    
+    .breadcrumb-link span {
+        display: none;
+    }
+    
+    .breadcrumb-link {
+        padding: 0.25rem;
+    }
+    
+    .breadcrumb-current {
+        font-size: 0.8rem;
+        padding: 0.25rem;
+    }
+}
+</style>
+{{ end }}

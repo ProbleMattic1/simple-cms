@@ -1,0 +1,184 @@
+<!-- Recent Testimonials Partial -->
+{{ $recentTestimonials := where .Site.RegularPages "Section" "testimonials" | first 2 }}
+{{ if $recentTestimonials }}
+<section class="recent-testimonials">
+    <div class="container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonials-preview">
+            {{ range $recentTestimonials }}
+            <article class="testimonial-preview">
+                <div class="testimonial-preview-content">
+                    {{ if .Summary }}
+                    <blockquote class="testimonial-quote">
+                        "{{ .Summary }}"
+                    </blockquote>
+                    {{ end }}
+                    
+                    <div class="testimonial-preview-details">
+                        <h3 class="testimonial-preview-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h3>
+                        
+                        <div class="testimonial-preview-meta">
+                            {{ if .Date }}
+                            <span class="testimonial-preview-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                            {{ end }}
+                        </div>
+                    </div>
+                    
+                    <a href="{{ .Permalink }}" class="btn btn-small">Read Full Review</a>
+                </div>
+            </article>
+            {{ end }}
+        </div>
+        
+        <div class="testimonials-cta">
+            <a href="{{ "/testimonials/" | relURL }}" class="btn btn-outline">View All Testimonials</a>
+        </div>
+    </div>
+</section>
+
+<style>
+.recent-testimonials {
+    padding: 3rem 0;
+    background: #2c3e50;
+    color: white;
+    margin: 3rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.testimonials-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.testimonial-preview {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.testimonial-preview:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.15);
+}
+
+.testimonial-quote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.testimonial-quote::before {
+    content: '"';
+    font-size: 3rem;
+    color: #3498db;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-family: serif;
+    opacity: 0.7;
+}
+
+.testimonial-preview-details {
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-preview-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.testimonial-preview-title a {
+    color: white;
+    text-decoration: none;
+}
+
+.testimonial-preview-title a:hover {
+    color: #3498db;
+}
+
+.testimonial-preview-meta {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.testimonial-preview-date {
+    color: #bdc3c7;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background: #3498db;
+    color: white;
+}
+
+.btn-small:hover {
+    background: #2980b9;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #2c3e50;
+}
+
+.testimonials-cta {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .testimonials-preview {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-quote {
+        font-size: 1rem;
+        padding-left: 1.5rem;
+    }
+    
+    .testimonial-quote::before {
+        font-size: 2rem;
+        top: -5px;
+        left: -5px;
+    }
+}
+</style>
+{{ end }}

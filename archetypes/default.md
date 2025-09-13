@@ -1,11 +1,12 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "{{ replace .File.ContentBaseName "-" " " | title }}"
 date: {{ .Date }}
 draft: true
 tags: []
-categories: []
+featured_image: ""
+description: ""
 ---
 
-# {{ replace .Name "-" " " | title }}
+# {{ replace .File.ContentBaseName "-" " " | title }}
 
 Write your content here...

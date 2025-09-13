@@ -1,0 +1,193 @@
+# Production Configuration for Simple CMS
+# This file contains production-specific settings
+
+baseURL = 'https://yourdomain.com/'
+languageCode = 'en-us'
+title = 'Simple CMS'
+theme = 'ananke'
+
+# Production build settings
+[build]
+  writeStats = true
+  useResourceCacheWhen = "always"
+
+# Performance settings
+[params]
+  description = "A professional content management system built with Hugo and Decap CMS"
+  author = "Your Company Name"
+  email = "contact@yourdomain.com"
+  
+  # Performance optimizations
+  minify = true
+  compress = true
+  enableRobotsTXT = true
+  enableGitInfo = true
+
+# Ananke theme configuration for production
+[ananke]
+  show_recent_posts = true
+
+[ananke.social]
+  icon_path = "ananke/socials/%s.svg"
+
+[ananke.social.follow]
+  new_window_icon = false
+  networks = [
+    "github",
+    "linkedin",
+    "twitter"
+  ]
+
+[ananke.social.share]
+  icons = true
+  sharetext = true
+  networks = [
+    "email",
+    "facebook",
+    "linkedin",
+    "twitter"
+  ]
+
+# Menu configuration
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 10
+  
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 20
+  
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 25
+  
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 30
+  
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 35
+  
+  [[menu.main]]
+    name = "Admin"
+    url = "/admin/"
+    weight = 40
+
+# Content configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.typography]
+        disable = false
+        [markup.goldmark.extensions.typography.quotes]
+          left = '"'
+          right = '"'
+
+# Image processing
+[imaging]
+  resampleFilter = "Lanczos"
+  quality = 85
+  anchor = "Smart"
+
+# Security headers
+[security]
+  [security.exec]
+    allow = []
+    osEnv = []
+
+# Output formats
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Sitemap configuration
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# Robots.txt
+[robots]
+  allow = ["/"]
+  disallow = ["/admin/", "/api/"]
+  sitemap = "https://yourdomain.com/sitemap.xml"
+
+# Analytics (replace with your tracking ID)
+[params.analytics]
+  google_analytics = "GA_MEASUREMENT_ID"
+  google_tag_manager = "GTM_CONTAINER_ID"
+
+# SEO settings
+[params.seo]
+  title = "Simple CMS - Professional Content Management"
+  description = "A powerful, fast, and secure content management system built with Hugo and Decap CMS"
+  keywords = ["CMS", "Content Management", "Hugo", "Static Site", "Decap CMS"]
+  author = "Your Company Name"
+  twitter = "@yourtwitter"
+  facebook = "yourfacebookpage"
+  
+# Performance settings
+[params.performance]
+  enable_lazy_loading = true
+  enable_preloading = true
+  enable_compression = true
+  enable_minification = true
+
+# Contact form settings
+[params.contact]
+  formspree_id = "YOUR_FORMSPREE_ID"
+  email = "contact@yourdomain.com"
+  phone = "+1 (555) 123-4567"
+  address = "123 Main Street, City, State 12345"
+
+# Social media links
+[params.social]
+  github = "your-github-username"
+  linkedin = "your-linkedin-username"
+  twitter = "your-twitter-username"
+  facebook = "your-facebook-page"
+  instagram = "your-instagram-username"
+  youtube = "your-youtube-channel"
+
+# Company information
+[params.company]
+  name = "Your Company Name"
+  description = "Professional content management solutions"
+  founded = "2024"
+  employees = "10-50"
+  location = "Your City, State"
+  website = "https://yourdomain.com"
+  email = "info@yourdomain.com"
+  phone = "+1 (555) 123-4567"
+
+# Legal pages
+[params.legal]
+  privacy_policy = "/privacy/"
+  terms_of_service = "/terms/"
+  cookie_policy = "/cookies/"
+  disclaimer = "/disclaimer/"
+
+# Feature flags
+[params.features]
+  enable_search = true
+  enable_comments = false
+  enable_newsletter = true
+  enable_social_sharing = true
+  enable_contact_form = true
+  enable_analytics = true
+  enable_performance_monitoring = true

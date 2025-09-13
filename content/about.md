@@ -2,6 +2,8 @@
 title: "About"
 date: 2024-01-01T00:00:00Z
 draft: false
+featured_image: ""
+description: "Learn about this simple content management system built with Hugo and Decap CMS."
 ---
 
 # About This Site

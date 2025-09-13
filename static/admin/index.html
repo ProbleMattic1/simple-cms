@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple CMS - Content Manager</title>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Custom CMS Styling */
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+    }
+    
+    .cms-header {
+      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .cms-header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    
+    .cms-header p {
+      margin: 0.5rem 0 0 0;
+      opacity: 0.9;
+      font-size: 1rem;
+      font-weight: 300;
+    }
+    
+    .cms-features {
+      background: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ecf0f1;
+    }
+    
+    .cms-features h2 {
+      margin: 0 0 1rem 0;
+      color: #2c3e50;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    
+    .cms-features p {
+      margin: 0;
+      color: #666;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    
+    /* Override Decap CMS styles */
+    .nc-app {
+      background: #f8f9fa !important;
+    }
+    
+    .nc-appHeader {
+      background: #2c3e50 !important;
+      border-bottom: 1px solid #34495e !important;
+    }
+    
+    .nc-appHeader-title {
+      color: white !important;
+      font-weight: 600 !important;
+    }
+    
+    .nc-appHeader-nav {
+      color: white !important;
+    }
+    
+    .nc-appHeader-navItem {
+      color: white !important;
+    }
+    
+    .nc-appHeader-navItem:hover {
+      background: rgba(255,255,255,0.1) !important;
+    }
+    
+    .nc-appHeader-navItem--active {
+      background: rgba(255,255,255,0.2) !important;
+    }
+    
+    /* Button styling */
+    .nc-button {
+      background: #3498db !important;
+      border-color: #3498db !important;
+      border-radius: 6px !important;
+      font-weight: 500 !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    .nc-button:hover {
+      background: #2980b9 !important;
+      border-color: #2980b9 !important;
+      transform: translateY(-1px) !important;
+    }
+    
+    .nc-button--primary {
+      background: #3498db !important;
+      border-color: #3498db !important;
+    }
+    
+    .nc-button--primary:hover {
+      background: #2980b9 !important;
+      border-color: #2980b9 !important;
+    }
+    
+    /* Form styling */
+    .nc-widget {
+      border: 1px solid #ecf0f1 !important;
+      border-radius: 6px !important;
+      transition: border-color 0.3s ease !important;
+    }
+    
+    .nc-widget:focus-within {
+      border-color: #3498db !important;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1) !important;
+    }
+    
+    .nc-widgetInput {
+      border: none !important;
+      border-radius: 6px !important;
+      padding: 0.75rem !important;
+      font-size: 0.95rem !important;
+    }
+    
+    .nc-widgetInput:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    
+    /* Card styling */
+    .nc-card {
+      background: white !important;
+      border: 1px solid #ecf0f1 !important;
+      border-radius: 8px !important;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    .nc-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+      transform: translateY(-1px) !important;
+    }
+    
+    /* Collection styling */
+    .nc-collectionPage {
+      background: #f8f9fa !important;
+    }
+    
+    .nc-collectionPage-header {
+      background: white !important;
+      border-bottom: 1px solid #ecf0f1 !important;
+      padding: 1.5rem !important;
+    }
+    
+    .nc-collectionPage-title {
+      color: #2c3e50 !important;
+      font-weight: 600 !important;
+      font-size: 1.5rem !important;
+    }
+    
+    /* Markdown editor styling */
+    .nc-markdownEditor {
+      border: 1px solid #ecf0f1 !important;
+      border-radius: 6px !important;
+    }
+    
+    .nc-markdownEditor-toolbar {
+      background: #f8f9fa !important;
+      border-bottom: 1px solid #ecf0f1 !important;
+    }
+    
+    .nc-markdownEditor-textarea {
+      border: none !important;
+      border-radius: 0 0 6px 6px !important;
+    }
+    
+    /* Image widget styling */
+    .nc-imageWidget {
+      border: 2px dashed #ecf0f1 !important;
+      border-radius: 8px !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    .nc-imageWidget:hover {
+      border-color: #3498db !important;
+      background: rgba(52, 152, 219, 0.05) !important;
+    }
+    
+    /* List widget styling */
+    .nc-listWidget {
+      border: 1px solid #ecf0f1 !important;
+      border-radius: 6px !important;
+    }
+    
+    .nc-listWidget-item {
+      border-bottom: 1px solid #ecf0f1 !important;
+    }
+    
+    .nc-listWidget-item:last-child {
+      border-bottom: none !important;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .cms-header {
+        padding: 1.5rem 1rem;
+      }
+      
+      .cms-header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .cms-features {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cms-header">
+    <h1>Simple CMS Admin</h1>
+    <p>Professional content management made simple</p>
+  </div>
+  
+  <div class="cms-features">
+    <h2>Manage Your Content</h2>
+    <p>Create, edit, and publish content with our intuitive interface. No technical knowledge required.</p>
+  </div>
+  
+  <script>
+    // Initialize Decap CMS with enhanced configuration
+    CMS.init({
+      config: {
+        load_config_file: true,
+        backend: {
+          name: 'git-gateway',
+          branch: 'main'
+        },
+        media_folder: 'static/images',
+        public_folder: '/images',
+        site_url: 'http://localhost:1313',
+        display_url: 'http://localhost:1313',
+        logo_url: '',
+        collections: [
+          {
+            name: 'posts',
+            label: '📝 Blog Posts',
+            folder: 'content/posts',
+            create: true,
+            slug: '{{slug}}',
+            summary: '{{title}} - {{date}}',
+            sortable_fields: ['title', 'date'],
+            view_filters: [
+              {
+                label: 'Draft',
+                field: 'draft',
+                pattern: 'true'
+              },
+              {
+                label: 'Published',
+                field: 'draft',
+                pattern: 'false'
+              }
+            ],
+            fields: [
+              {
+                label: 'Title',
+                name: 'title',
+                widget: 'string',
+                required: true,
+                hint: 'The title of your blog post'
+              },
+              {
+                label: 'Date',
+                name: 'date',
+                widget: 'datetime',
+                required: true,
+                date_format: 'YYYY-MM-DD',
+                time_format: 'HH:mm:ss',
+                format: 'YYYY-MM-DDTHH:mm:ssZ'
+              },
+              {
+                label: 'Draft',
+                name: 'draft',
+                widget: 'boolean',
+                default: true,
+                hint: 'Uncheck to publish this post'
+              },
+              {
+                label: 'Tags',
+                name: 'tags',
+                widget: 'list',
+                allow_add: true,
+                required: false,
+                hint: 'Add tags to categorize your post'
+              },
+              {
+                label: 'Featured Image',
+                name: 'featured_image',
+                widget: 'image',
+                required: false,
+                hint: 'Upload a featured image for your post'
+              },
+              {
+                label: 'Description',
+                name: 'description',
+                widget: 'text',
+                required: false,
+                hint: 'Brief description for SEO and social sharing'
+              },
+              {
+                label: 'Body',
+                name: 'body',
+                widget: 'markdown',
+                required: true,
+                hint: 'Write your post content here using Markdown'
+              }
+            ]
+          },
+          {
+            name: 'pages',
+            label: '📄 Pages',
+            folder: 'content/pages',
+            create: true,
+            slug: '{{slug}}',
+            summary: '{{title}}',
+            fields: [
+              {
+                label: 'Title',
+                name: 'title',
+                widget: 'string',
+                required: true
+              },
+              {
+                label: 'Date',
+                name: 'date',
+                widget: 'datetime',
+                required: true,
+                date_format: 'YYYY-MM-DD',
+                time_format: 'HH:mm:ss',
+                format: 'YYYY-MM-DDTHH:mm:ssZ'
+              },
+              {
+                label: 'Draft',
+                name: 'draft',
+                widget: 'boolean',
+                default: false
+              },
+              {
+                label: 'Featured Image',
+                name: 'featured_image',
+                widget: 'image',
+                required: false
+              },
+              {
+                label: 'Description',
+                name: 'description',
+                widget: 'text',
+                required: false
+              },
+              {
+                label: 'Body',
+                name: 'body',
+                widget: 'markdown',
+                required: true
+              }
+            ]
+          },
+          {
+            name: 'projects',
+            label: '🚀 Projects',
+            folder: 'content/projects',
+            create: true,
+            slug: '{{slug}}',
+            summary: '{{title}} - {{date}}',
+            sortable_fields: ['title', 'date'],
+            fields: [
+              {
+                label: 'Title',
+                name: 'title',
+                widget: 'string',
+                required: true
+              },
+              {
+                label: 'Date',
+                name: 'date',
+                widget: 'datetime',
+                required: true,
+                date_format: 'YYYY-MM-DD',
+                time_format: 'HH:mm:ss',
+                format: 'YYYY-MM-DDTHH:mm:ssZ'
+              },
+              {
+                label: 'Draft',
+                name: 'draft',
+                widget: 'boolean',
+                default: true
+              },
+              {
+                label: 'Tags',
+                name: 'tags',
+                widget: 'list',
+                allow_add: true,
+                required: false
+              },
+              {
+                label: 'Featured Image',
+                name: 'featured_image',
+                widget: 'image',
+                required: false
+              },
+              {
+                label: 'Description',
+                name: 'description',
+                widget: 'text',
+                required: false
+              },
+              {
+                label: 'Body',
+                name: 'body',
+                widget: 'markdown',
+                required: true
+              }
+            ]
+          },
+          {
+            name: 'testimonials',
+            label: '💬 Testimonials',
+            folder: 'content/testimonials',
+            create: true,
+            slug: '{{slug}}',
+            summary: '{{title}} - {{date}}',
+            fields: [
+              {
+                label: 'Title',
+                name: 'title',
+                widget: 'string',
+                required: true
+              },
+              {
+                label: 'Date',
+                name: 'date',
+                widget: 'datetime',
+                required: true,
+                date_format: 'YYYY-MM-DD',
+                time_format: 'HH:mm:ss',
+                format: 'YYYY-MM-DDTHH:mm:ssZ'
+              },
+              {
+                label: 'Draft',
+                name: 'draft',
+                widget: 'boolean',
+                default: true
+              },
+              {
+                label: 'Tags',
+                name: 'tags',
+                widget: 'list',
+                allow_add: true,
+                required: false
+              },
+              {
+                label: 'Featured Image',
+                name: 'featured_image',
+                widget: 'image',
+                required: false
+              },
+              {
+                label: 'Description',
+                name: 'description',
+                widget: 'text',
+                required: false
+              },
+              {
+                label: 'Body',
+                name: 'body',
+                widget: 'markdown',
+                required: true
+              }
+            ]
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>

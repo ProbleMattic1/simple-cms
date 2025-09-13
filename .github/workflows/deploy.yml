@@ -1,0 +1,227 @@
+# GitHub Actions Workflow for Simple CMS Deployment
+# This workflow automates the build and deployment process
+
+name: Deploy Simple CMS
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  HUGO_VERSION: '0.150.0'
+  NODE_VERSION: '18'
+
+jobs:
+  # Build and test job
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+        fetch-depth: 0
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: ${{ env.HUGO_VERSION }}
+        extended: true
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: Cache Hugo modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/hugo
+        key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}-
+
+    - name: Install dependencies
+      run: |
+        hugo mod get -u
+        hugo mod tidy
+
+    - name: Build site (development)
+      run: hugo --config config.toml --minify --cleanDestinationDir
+      if: github.ref == 'refs/heads/develop'
+
+    - name: Build site (production)
+      run: hugo --config config.production.toml --minify --cleanDestinationDir
+      if: github.ref == 'refs/heads/main'
+
+    - name: Run tests
+      run: |
+        # Check for broken internal links
+        if command -v htmltest &> /dev/null; then
+          htmltest
+        fi
+        
+        # Validate HTML
+        if command -v html-validate &> /dev/null; then
+          html-validate public/
+        fi
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: site-build
+        path: public/
+        retention-days: 1
+
+  # Deploy to staging (develop branch)
+  deploy-staging:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: site-build
+        path: public/
+
+    - name: Deploy to Netlify (staging)
+      uses: nwtgck/actions-netlify@v2.0
+      with:
+        publish-dir: './public'
+        production-branch: develop
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions (staging)"
+        enable-pull-request-comment: true
+        enable-commit-comment: true
+        overwrites-pull-request-comment: true
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STAGING }}
+
+  # Deploy to production (main branch)
+  deploy-production:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: site-build
+        path: public/
+
+    - name: Deploy to Netlify (production)
+      uses: nwtgck/actions-netlify@v2.0
+      with:
+        publish-dir: './public'
+        production-branch: main
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions (production)"
+        enable-pull-request-comment: true
+        enable-commit-comment: true
+        overwrites-pull-request-comment: true
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+    - name: Notify deployment
+      run: |
+        # Send notification to Slack (if configured)
+        if [ -n "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{"text":"🚀 Simple CMS deployed to production successfully!"}' \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
+        fi
+
+  # Security scan
+  security-scan:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run security scan
+      uses: securecodewarrior/github-action-add-sarif@v1
+      with:
+        sarif-file: 'security-scan-results.sarif'
+
+  # Performance test
+  performance-test:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: site-build
+        path: public/
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: Install Lighthouse CI
+      run: npm install -g @lhci/cli@0.12.x
+
+    - name: Run Lighthouse CI
+      run: lhci autorun
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  # Backup job
+  backup:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Create backup
+      run: |
+        # Create timestamped backup
+        timestamp=$(date +%Y%m%d_%H%M%S)
+        tar -czf "backup_${timestamp}.tar.gz" --exclude='.git' --exclude='node_modules' --exclude='public' .
+        
+        # Upload to cloud storage (example with AWS S3)
+        if [ -n "${{ secrets.AWS_ACCESS_KEY_ID }}" ]; then
+          aws s3 cp "backup_${timestamp}.tar.gz" s3://your-backup-bucket/
+        fi
+
+  # Cleanup job
+  cleanup:
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Cleanup artifacts
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            run_id: context.runId,
+          });
+          
+          for (const artifact of artifacts.data.artifacts) {
+            if (artifact.name === 'site-build') {
+              await github.rest.actions.deleteArtifact({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                artifact_id: artifact.id,
+              });
+            }
+          }

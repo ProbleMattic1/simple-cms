@@ -1,0 +1,486 @@
+<!-- Enhanced Contact Form Partial -->
+<div class="contact-form-container">
+    <div class="contact-form-header">
+        <h3>Send Us a Message</h3>
+        <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+    </div>
+    
+    <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+                <div class="form-error" id="name-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+                <div class="form-error" id="email-error"></div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+                <div class="form-error" id="phone-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject *</label>
+                <select id="subject" name="subject" required>
+                    <option value="">Select a subject</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="sales">Sales Question</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="other">Other</option>
+                </select>
+                <div class="form-error" id="subject-error"></div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Tell us about your project or question..."></textarea>
+            <div class="form-error" id="message-error"></div>
+            <div class="form-help">Minimum 10 characters required</div>
+        </div>
+        
+        <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                <span class="checkmark"></span>
+                Subscribe to our newsletter for updates and tips
+            </label>
+        </div>
+        
+        <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="privacy" name="privacy" required>
+                <span class="checkmark"></span>
+                I agree to the <a href="/privacy/" target="_blank">Privacy Policy</a> *
+            </label>
+            <div class="form-error" id="privacy-error"></div>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submit-btn">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loading" style="display: none;">
+                    <svg class="spinner" width="20" height="20" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity="0.25"/>
+                        <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="4" fill="none">
+                            <animateTransform attributeName="transform" type="rotate" dur="1s" values="0 12 12;360 12 12" repeatCount="indefinite"/>
+                        </path>
+                    </svg>
+                    Sending...
+                </span>
+            </button>
+        </div>
+        
+        <div class="form-success" id="form-success" style="display: none;">
+            <div class="success-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                </svg>
+            </div>
+            <div class="success-content">
+                <h4>Message Sent Successfully!</h4>
+                <p>Thank you for your message. We'll get back to you within 24 hours.</p>
+            </div>
+        </div>
+    </form>
+</div>
+
+<style>
+.contact-form-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border: 1px solid #ecf0f1;
+}
+
+.contact-form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-form-header h3 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.contact-form-header p {
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 0.75rem;
+    border: 2px solid #ecf0f1;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-group input.error,
+.form-group textarea.error,
+.form-group select.error {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-error {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.form-error.show {
+    display: block;
+}
+
+.form-help {
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+.checkbox-group {
+    margin-top: 0.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.checkbox-label input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ecf0f1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark {
+    background: #3498db;
+    border-color: #3498db;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+    content: '✓';
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.checkbox-label a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.checkbox-label a:hover {
+    text-decoration: underline;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 150px;
+    justify-content: center;
+}
+
+.btn:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.form-success {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 6px;
+    color: #155724;
+}
+
+.success-icon {
+    flex-shrink: 0;
+}
+
+.success-content h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.success-content p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .contact-form-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+// Enhanced form validation and submission
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoading = submitBtn.querySelector('.btn-loading');
+    const formSuccess = document.getElementById('form-success');
+    
+    // Validation rules
+    const validators = {
+        name: {
+            required: true,
+            minLength: 2,
+            message: 'Name must be at least 2 characters long'
+        },
+        email: {
+            required: true,
+            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: 'Please enter a valid email address'
+        },
+        phone: {
+            required: false,
+            pattern: /^[\+]?[1-9][\d]{0,15}$/,
+            message: 'Please enter a valid phone number'
+        },
+        subject: {
+            required: true,
+            message: 'Please select a subject'
+        },
+        message: {
+            required: true,
+            minLength: 10,
+            message: 'Message must be at least 10 characters long'
+        },
+        privacy: {
+            required: true,
+            message: 'You must agree to the privacy policy'
+        }
+    };
+    
+    // Validate individual field
+    function validateField(fieldName, value) {
+        const validator = validators[fieldName];
+        if (!validator) return true;
+        
+        if (validator.required && (!value || value.trim() === '')) {
+            return validator.message;
+        }
+        
+        if (validator.minLength && value.length < validator.minLength) {
+            return validator.message;
+        }
+        
+        if (validator.pattern && value && !validator.pattern.test(value)) {
+            return validator.message;
+        }
+        
+        return null;
+    }
+    
+    // Show field error
+    function showFieldError(fieldName, message) {
+        const field = document.getElementById(fieldName);
+        const errorElement = document.getElementById(fieldName + '-error');
+        
+        field.classList.add('error');
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+    }
+    
+    // Clear field error
+    function clearFieldError(fieldName) {
+        const field = document.getElementById(fieldName);
+        const errorElement = document.getElementById(fieldName + '-error');
+        
+        field.classList.remove('error');
+        errorElement.textContent = '';
+        errorElement.classList.remove('show');
+    }
+    
+    // Validate entire form
+    function validateForm() {
+        let isValid = true;
+        
+        Object.keys(validators).forEach(fieldName => {
+            const field = document.getElementById(fieldName);
+            const value = field.type === 'checkbox' ? field.checked : field.value;
+            const error = validateField(fieldName, value);
+            
+            if (error) {
+                showFieldError(fieldName, error);
+                isValid = false;
+            } else {
+                clearFieldError(fieldName);
+            }
+        });
+        
+        return isValid;
+    }
+    
+    // Real-time validation
+    Object.keys(validators).forEach(fieldName => {
+        const field = document.getElementById(fieldName);
+        if (field) {
+            field.addEventListener('blur', function() {
+                const value = field.type === 'checkbox' ? field.checked : field.value;
+                const error = validateField(fieldName, value);
+                
+                if (error) {
+                    showFieldError(fieldName, error);
+                } else {
+                    clearFieldError(fieldName);
+                }
+            });
+        }
+    });
+    
+    // Form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+            return;
+        }
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'flex';
+        
+        // Simulate form submission (replace with actual form handling)
+        setTimeout(() => {
+            // Hide form and show success message
+            form.style.display = 'none';
+            formSuccess.style.display = 'flex';
+            
+            // Reset button state
+            submitBtn.disabled = false;
+            btnText.style.display = 'inline';
+            btnLoading.style.display = 'none';
+        }, 2000);
+    });
+});
+</script>
