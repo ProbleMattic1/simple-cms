@@ -1,0 +1,37 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'Simple CMS'
+theme = ''
+
+# Site configuration
+[params]
+  description = "A simple content management system built with Hugo"
+  author = "Your Name"
+  email = "your.email@example.com"
+  
+# Build configuration
+[build]
+  writeStats = true
+
+# Menu configuration
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 10
+  
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 20
+  
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 30
+
+# Content configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
